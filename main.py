@@ -21,27 +21,25 @@ class Application(tk.Tk):
         self.lbl1 = tk.Label(self.frame, text="A")
         self.lbl1.grid(row=0, column=0, ipadx = 5, ipady = 5)
         self.lbl1.config(font=(20))
+        
         self.lbl3 = tk.Label(self.frame, text="+", width=10)
         self.lbl3.config(font=(20))
         self.lbl3.grid(row=0, column=1, ipadx = 5, ipady = 5)
+
         self.lbl2 = tk.Label(self.frame, text="B")
         self.lbl2.grid(row=0, column=2, ipadx = 5, ipady = 5)
         self.lbl2.config(font=(20))
-        vcmd = (self.register(self.callback))
-        self.entry = tk.Entry(self.frame, validate="all", validatecommand=(vcmd, '%P'), width = 3, textvariable = self.varEntry)
+
+        self.entry = tk.Entry(self.frame, textvariable = self.varEntry)
         self.entry.grid(row=0, column=3, padx = 5, pady = 5)
+
         self.btnOk = tk.Button(self.frame, text="Ok", command=self.ok)
         self.btnOk.grid(row=0, column=4, padx = 5, pady = 5)
+
         self.btn1 = tk.Button(self.frame, text="ukoncit", command=self.ukoncit)
         self.btn1.grid(row=0, column=5, padx = 5, pady = 5)
+
         self.priklad()
-
-    def callback(self, P):
-        if str.isdigit(P) or P == "":
-            return True
-        else:
-            return False
-
 
     def priklad(self):
         vysledek = random.choice([self.plus, self.minus, self.krat, self.deleno])
